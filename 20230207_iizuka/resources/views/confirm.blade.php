@@ -10,7 +10,6 @@
     width:90%;
     margin:20px auto;
     display:flex; 
-    border:solid;   
   }
   .box2{
     height:10%;
@@ -38,7 +37,6 @@
     height:100%;
     font-size:20px;
     font-weight:bold;
-    border:solid;
   }
   span{
     color:#FF0000;
@@ -139,7 +137,7 @@
         </label>
       </div>
       <div class="short">
-         <input type="hidden" name="name" value="{{$last_name}} {{$first_name}}" >
+         <input type="hidden" name="fullname" value="{{$last_name}} {{$first_name}}" >
         <p class="answer">{{$last_name}} {{$first_name}}</p>
       </div>
     </div>
@@ -166,13 +164,13 @@
       </div>
     </div>
     <div class="box">
-      <div>
+      <div class="label">
         <label>
-          <p>郵便番号</p>
+          <p>メールアドレス</p>
         </label>
       </div>
       <div class="long">
-        <input type="hidden" name="postal_code" value="{{$form['zip11']}}" >               
+        <input type="hidden" name="postcode" value="{{$form['zip11']}}" >               
         <p class="answer">〒{{$form['zip11']}}</p>
       </div>
     </div>
@@ -203,13 +201,13 @@
         <label>ご意見</label>
       </div>
       <div class="large">
-        <input type="hidden" name="comment" value="{{$form['comment']}}" >         
-        <p class="answer">{{$form['comment']}}</p>
+        <input type="hidden" name="opinion" value="{{$form['opinion']}}" >         
+        <p class="answer">{{$form['opinion']}}</p>
       </div>
     </div>
     <div class="end-box">
       <input type="submit" value="確認" class="button">
-      <a href="/">修正する</a>
+      <a href="javascript:history.back()">修正する</a>
     </div>
   </form>
 </div>

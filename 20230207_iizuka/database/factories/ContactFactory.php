@@ -15,12 +15,13 @@ class ContactFactory extends Factory
     {
         $name = ('name');
         return [
-            'name' => $this->faker->name,
-            'gender' => $this->faker->randomElement($array=['男性','女性']),
+            'fullname' => $this->faker->name,
+            'gender' => rand(1,2),
             'email' => $this->faker->email,
-            'address' => $this->faker->address,
+            'postcode' =>$this->faker->numerify('###-####'),
+            'address' => $this->faker->address('prefecture'),
             'building_name' => $this->faker->secondaryAddress,
-            'comment' => $this->faker->realText(120),
+            'opinion' => $this->faker->realText(120,5),
         ];
     }
 }

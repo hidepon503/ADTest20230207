@@ -24,14 +24,14 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'last_name' =>  ['required','max:50'],
-            'first_name' =>  ['required','max:50'],
+            'last_name' =>  ['required','max:125'],
+            'first_name' =>  ['required','max:130'],
             'gender' => ['required'],
-            'email' =>['required','email:filter,dns'],
+            'email' =>['required','email:filter,dns','max:255'],
             'zip11' => ['required','max:8','min:8'],
-            'addr11' => ['required','max:191'],
-            'building_name' => ['max:100'],
-            'comment' => ['required','max:120']
+            'addr11' => ['required','max:255'],
+            'building_name' => ['max:255'],
+            'opinion' => ['required','max:120']
         ];
     }
 
@@ -50,8 +50,8 @@ class ContactRequest extends FormRequest
             'addr11.required' => 'ご住所を入力してください。',
             'addr11.max' => '200字以内でご入力ください。',
             'building_name.max' => '50文字以内で入力してください。',
-            'comment.required' => 'ご意見を入力してください。',
-            'comment.max' => '120文字以内でご入力ください。'
+            'opinion.required' => 'ご意見を入力してください。',
+            'opinion.max' => '120文字以内でご入力ください。'
         ];
     }
 }

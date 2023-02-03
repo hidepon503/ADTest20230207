@@ -24,13 +24,13 @@ class ConfirmRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' =>  ['required','max:100'],
-            'gender' => ['required','max:5'],
-            'email' =>['required','email:filter,dns', 'max:191'],
-            'postal_code'=>['required','max:8'],
-            'address' => ['required','max:191'],
-            'building_name' => ['max:100'],
-            'comment' => ['required','max:120']
+            'fullname' =>  ['required','max:255'],
+            'gender' => ['required'],
+            'email' =>['required','email:filter,dns', 'max:255'],
+            'postcode'=>['required','max:8'],
+            'address' => ['required','max:255'],
+            'building_name' => ['max:255'],
+            'opinion' => ['required','max:120']
         ];
     }
 

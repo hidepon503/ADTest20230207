@@ -132,7 +132,7 @@
         <label for="name">お名前<span>※</span></label>
       </div>
       <div class="short">
-        <input type="text" id="name" name="last_name" class="short-form">
+        <input type="text" id="name" name="last_name" value="{{old('last_name')}}" class="short-form">
         <p class="sample">例） 山田</p>
         @if ($errors->has('last_name'))
           @foreach($errors->get('last_name') as $message)
@@ -141,7 +141,7 @@
         @endif
       </div>
       <div  class="short">
-        <input type="text" id="name" name="first_name" class="short-form">
+        <input type="text" id="name" name="first_name" value="{{old('first_name')}}" class="short-form">
         <p class="sample">例） 太郎 </p>
         @if ($errors->has('first_name'))
           @foreach($errors->get('first_name') as $message)
@@ -156,7 +156,7 @@
       </div>
       <div class="radio">
         <!--ラジオボタンの色変更-->
-        <input type="radio" id="men" name="gender" value="男性" checked="checked" class="radio-form">
+        <input type="radio" id="men" name="gender" value="男性" checked="checked" selected class="radio-form">
         <label for="men">男性</label>     
         <input type="radio" id="female" name="gender" value="女性" class="radio-form">
         <label for="female">女性</label>   
@@ -167,7 +167,7 @@
         <label for="email">メールアドレス<span>※</span></label>
       </div>
       <div class="long">
-        <input type="email" id="email" name="email" class="long-form">
+        <input type="email" id="email" name="email" value="{{old('email')}}" class="long-form">
         <p class="sample">例） test@example.com</p>
         @if ($errors->has('email'))
           @foreach($errors->get('email') as $message)
@@ -178,12 +178,12 @@
     </div>
     <div class="box">
       <div class="label">
-        <label for="postal_code">郵便番号<span>※</span></label>
+        <label for="postcode">郵便番号<span>※</span></label>
       </div>
       <div class="long">
         <p class="post-icon">〒</p>
         <!--自動で全角を半角にするにはJAVAscriptの知識が必要。今は出来ない。。。-->
-        <input type="text"  id="postal_code" name="zip11"  class="semilong-form" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"  >
+        <input type="text"  id="postcode" name="zip11" value="{{old('zip11')}}"  class="semilong-form" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');"  >
         <p class="sample">例） 123-456</p>
         @if ($errors->has('zip11'))
           @foreach($errors->get('zip11') as $message)
@@ -197,7 +197,7 @@
         <label for="address">住所<span>※</span></label>
       </div>
       <div class="long">
-        <input type="text" id="address" name="addr11" size="60" class="long-form">
+        <input type="text" id="address" name="addr11" value="{{old('addr11')}}" size="60" class="long-form">
         <p class="sample">例） 東京都渋谷区千駄ヶ谷1-2-3</p>
         @if ($errors->has('addr11'))
           @foreach($errors->get('addr11') as $message)
@@ -211,7 +211,7 @@
         <label for="building_name">建物名</label>
       </div>
       <div class="long">
-        <input type="text" id="building_name" name="building_name" class="long-form">
+        <input type="text" id="building_name" name="building_name" value="{{old('building_name')}}" class="long-form">
         <p class="sample">例） 千駄ヶ谷マンション101</p>
         @if ($errors->has('building_name'))
           @foreach($errors->get('building_name') as $message)
@@ -222,12 +222,12 @@
     </div>
     <div class="large-box">
       <div class="label">
-        <label for="comment">ご意見<span>※</span></label>
+        <label for="opinion">ご意見<span>※</span></label>
       </div>
       <div class="large">
-        <textarea name="comment" id="comment" cols="30" rows="10" class="large-form"></textarea>
-        @if ($errors->has('comment'))
-            @foreach($errors->get('comment') as $message)
+        <textarea name="opinion" id="opinion" cols="30" rows="10"  class="large-form">{{old('opinion')}}</textarea>
+        @if ($errors->has('opinion'))
+            @foreach($errors->get('opinion') as $message)
             <p class="error">{{ $message }} </p>
             @endforeach
         @endif
