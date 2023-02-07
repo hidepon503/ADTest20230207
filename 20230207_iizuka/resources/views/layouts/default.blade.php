@@ -8,11 +8,15 @@
   <link rel="stylesheet" href="{{asset('/css/reset.css')}}">
   <link rel="icon" href="{{asset('/favicon1.ico')}}">
   <link rel="apple-touch-icon" type="image/png"sizes="180x180" href="{{asset('/apple-touch-icon.png')}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
   <title>@yield('title')</title>
 </head>
 <style>
   body{
     font-size:16px;
+    font-family: 'Noto Sans JP', sans-serif;
   }
   .container {
     height:100%;
