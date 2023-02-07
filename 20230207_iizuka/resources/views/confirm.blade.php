@@ -119,8 +119,13 @@
     border-radius:10px;
     text-align:center;
   }
-  .answer{
+  .opinion{
     font-size:20px;
+    overflow-wrap: break-word;
+  }
+  .back{
+    margin-top:10px;
+    color:#000000;
   }
 
 </style>
@@ -128,7 +133,7 @@
 @section('subtitle', '内容確認')
 @section('content')
 <div class="wrapper">
-  <form action="/thanks" method="POST">
+  <form action="/contact/thanks" method="post">
     @csrf
     <div class="box">
       <div class="label">
@@ -148,8 +153,12 @@
         </label>
       </div>
       <div class="radio">
-         <input type="hidden" name="gender" value="{{$form['gender']}}" >        
-        <p class="answer">{{$form['gender']}}</p>   
+         <input type="hidden" name="gender" value="{{$form['gender']}}" >  
+         @if($gender=='1')
+          <p class="answer">男性</p>   
+         @elseif($gender=='2')
+          <p class="answer">女性</p>
+         @endif    
       </div>
     </div>
     <div class="box">
@@ -202,12 +211,12 @@
       </div>
       <div class="large">
         <input type="hidden" name="opinion" value="{{$form['opinion']}}" >         
-        <p class="answer">{{$form['opinion']}}</p>
+        <p class="opinion">{{$form['opinion']}}</p>
       </div>
     </div>
     <div class="end-box">
       <input type="submit" value="確認" class="button">
-      <a href="javascript:history.back()">修正する</a>
+      <a href="javascript:history.back()" class="back">修正する</a>
     </div>
   </form>
 </div>

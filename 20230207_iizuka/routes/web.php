@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 //お問い合わせ
-Route::GET('/', [ContactController::class,'index']);
-Route::POST('/confirm', [ContactController::class,'confirm']);
-Route::POST('/thanks', [ContactController::class,'create']);
-Route::GET('/search', [ContactController::class,'find']);
-Route::POST('/search', [ContactController::class,'search']);
-Route::POST('/destroy', [ContactController::class,'destroy']);
+Route::get('/', [ContactController::class,'index']);
+Route::post('/contact/confirm', [ContactController::class,'confirm']);
+Route::post('/contact/thanks', [ContactController::class,'create']);
+Route::get('/contact/find', [ContactController::class,'find']);
+Route::get('/contact/search', [ContactController::class,'search']);
+Route::post('/contact/delete', [ContactController::class,'delete']);

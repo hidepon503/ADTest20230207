@@ -1,0 +1,78 @@
+<style>
+nav {
+  list-style: none;
+}
+ 
+nav li {
+  width: 25px;
+  height:17px;
+  text-align: center;
+  padding-top:4px;
+  background-color: #FFFFFF;
+  border:1px solid #000000;
+  display: inline-block;
+  font-weight: bold;
+}
+ 
+nav li a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+li{
+  margin-left:-6px;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+</style>
+
+@if ($paginator->hasPages())
+    <nav class="p-pagination">
+        <ul>
+        <!-- 前へ移動ボタン -->
+        
+          @if ($paginator->onFirstPage())
+              <li class="disabled "><</li>
+          @else
+              <li>
+                  <a href="{{ $paginator->previousPageUrl() }}"><</a>
+              </li>
+          @endif
+        
+
+        <!-- ページ番号　-->
+        @foreach ($elements as $element)
+            @if (is_string($element))
+                <li class="disabled">
+                    {{ $element }}
+                </li>
+            @endif
+
+            @if (is_array($element))
+                @foreach ($element as $page => $url)
+                    @if ($page == $paginator->currentPage())
+                        <li class="active">
+                            {{ $page }}
+                        </li>
+                    @else
+                        <li class="active">
+                            <a href="{{ $url }}">{{ $page }}</a>
+                        </li>
+                    @endif
+                @endforeach
+            @endif
+        @endforeach
+
+        <!-- 次へ移動ボタン -->
+        @if ($paginator->hasMorePages())
+            <li>
+                <a href="{{ $paginator->nextPageUrl() }}">></a>
+            </li>
+        @else
+            <li class="disabled">></li>
+        @endif
+        </ul>
+    </nav>
+@endif 

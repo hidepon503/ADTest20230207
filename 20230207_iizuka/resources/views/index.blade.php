@@ -19,7 +19,7 @@
   }
 
   .large-box{
-    height:15%;
+    height:17%;
     width:90%;
     margin:20px auto;
     display:flex;   
@@ -125,7 +125,7 @@
 @section('subtitle', 'お問い合わせ')
 @section('content')
 <div class="wrapper">
-  <form method="POST" action="/confirm">
+  <form method="post" action="/contact/confirm">
     @csrf
     <div class="box">
       <div class="label">
@@ -156,9 +156,9 @@
       </div>
       <div class="radio">
         <!--ラジオボタンの色変更-->
-        <input type="radio" id="men" name="gender" value="男性" checked="checked" selected class="radio-form">
+        <input type="radio" id="men" name="gender" value="1" checked="checked" selected class="radio-form">
         <label for="men">男性</label>     
-        <input type="radio" id="female" name="gender" value="女性" class="radio-form">
+        <input type="radio" id="female" name="gender" value="2" class="radio-form">
         <label for="female">女性</label>   
       </div>
     </div>
